@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('partials/generic.ejs')%>
+        <link rel="stylesheet" href="/css/ipad.css">
+</head>
+
+<body>
+    <%- include('partials/topNavBar.ejs')%>
+
+        <video src="/pictures/ipad/ipadVideo.mp4" id="Video" autoplay muted playsinline loop></video>
+        <section id="ipadMini">
+            <div id="ipadMiniDeatils">
+                <h2 id="ProductName">iPad Mini</h2>
+                <p id="ProductDescription">Coming this summer.</p>
+                <p id="iPadPrice">Starts at 999$</p>
+            </div>
+            <img src="/pictures/homeScreen/ipadMini.png" alt="">
+        </section>
+
+        <section id="productCards">
+            <% let productName="iPad Pro" %>
+                <% let productDescription="So light, so Powerful, so Pro." %>
+                    <%let backgroundImage="/pictures/ipad/ipadProPreview.png" %>
+                        <%let itemID="670839d5f66a4b2a52701151" %>
+
+                            <%- include('partials/productDisplayCard.ejs', {productName: productName
+                                ,productDescription:productDescription,backgroundImage:backgroundImage,itemID:itemID})%>
+
+
+                                <% productName="iPad Air" %>
+                                    <% productDescription="Infinite possibilities." %>
+                                        <% backgroundImage="/pictures/ipad/ipadAirPreview.png" %>
+                                            <% itemID="670839d5f66a4b2a5270115b" %>
+
+                                                <%- include('partials/productDisplayCard.ejs', {productName: productName
+                                                    ,productDescription:productDescription,backgroundImage:backgroundImage,itemID:itemID})%>
+
+        </section>
+        <%- include('partials/productsPreviewRow.ejs', {items}) %>
+
+            <%- include('partials/bottomNavBar.ejs')%>
+</body>
+
+</html>

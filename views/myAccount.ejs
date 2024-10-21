@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('partials/generic.ejs')%>
+        <link rel="stylesheet" href="/css/account.css">
+</head>
+
+<body>
+    <%- include('partials/topNavBar.ejs')%>
+
+        <div class="main">
+
+            <h1>Welcome <%=user.firstName %>!</h1>
+
+            <section id="personalDeatils">
+
+                <!-- <h2>Previous orders:</h2> -->
+
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label>First name</label>
+                        <p>
+                            <%= user.firstName %>
+                        </p>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Last name</label>
+                        <p>
+                            <%= user.lastName %>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>User name:</label>
+                    <p>
+                        <%= user.username %>
+                    </p>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-8">
+                        <label>Email</label>
+                        <p>
+                            <%= user.email %>
+                        </p>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label>Phone Number</label>
+                        <p>
+                            <%= user.phoneNumber %>
+                        </p>
+                    </div>
+                </div>
+
+            </section>
+
+            <form action="/account?_method=PUT" method="post" id="editProfileForm">
+                <input type="hidden" name="userID" value="<%= user._id %>">
+
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="firstName">First name</label>
+                        <input class="form-control" type="text" id="firstName" placeholder="Enter your first name"
+                            name="firstName"
+                            value="<%= formData && formData.firstName ? formData.firstName : user.firstName %>"
+                            required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="lastName">Last name</label>
+                        <input class="form-control" type="text" id="lastName" placeholder="Enter your last name"
+                            name="lastName"
+                            value="<%= formData && formData.lastName ? formData.lastName : user.lastName %>" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="username">User name:</label>
+                    <input class="form-control" id="username" type="text" placeholder="Enter your user name"
+                        name="username" value="<%= formData && formData.username ? formData.username : user.username %>"
+                        required>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-8">
+                        <label for="email">Email</label>
+                        <input class="form-control" type="email" id="email" name="email" placeholder="Email@apple.com"
+                            value="<%= formData && formData.email ? formData.email : user.email %>" required>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="phoneNumber">Phone Number</label>
+                        <input class="form-control" type="text" id="phoneNumber" name="phoneNumber"
+                            placeholder="050-0000-000"
+                            value="<%= formData && formData.phoneNumber ? formData.phoneNumber : user.phoneNumber %>"
+                            required>
+                    </div>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="currentPassword">Current password</label>
+                    <input class="form-control" id="currentPassword" type="password"
+                        placeholder="Enter your current password" name="currentPassword">
+                </div>
+                <div class="form-group">
+                    <label for="newPassword">New password</label>
+                    <input class="form-control" id="newPassword" type="password" placeholder="Enter new password"
+                        name="newPassword">
+                </div>
+                <div class="form-group">
+                    <label for="conNewPassword">Confirm new password</label>
+                    <input class="form-control" id="conNewPassword" type="password" placeholder="Confirm new password"
+                        name="conNewPassword">
+                </div>
+            </form>
+
+
+
+            <% for(msg of errorMsgs){ %>
+                <div id="signUpErrorMsgs">
+                    <p class="ErrorMsg">
+                        <%=msg %>
+                    </p>
+                </div>
+                <% } %>
+
+                    <footer class="btnSection">
+                        <button class="formBtn1" id="editProfileBtn">Edit profile</button>
+                        <form action="/logout" method="post">
+                            <button class="formBtn2" id="logout">Log out</button>
+                        </form>
+                    </footer>
+
+                    </footer>
+
+
+        </div>
+        <%- include('partials/bottomNavBar.ejs')%>
+
+            <script src="/js/account/myAccount.js"></script>
+</body>
+
+</html>

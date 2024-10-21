@@ -1,0 +1,103 @@
+html {
+    margin: 0%;
+}
+
+body {
+    background-color: #181818;
+    margin: 0;
+    padding: 0;
+    line-height: normal;
+}
+
+/* Airpods Max Main */
+.main_AirPods_Max {
+    background-color: rgb(245, 245, 245);
+    text-align: center;
+    position: relative;
+
+    .container {
+        position: relative;
+        text-align: center;
+        padding: 50px;
+        width: 100%;
+
+        img {
+            width: 50%;
+            display: block;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        h2 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #181818;
+            font-size: 14em;
+            font-weight: 600;
+            z-index: 0;
+            width: 100%;
+        }
+    }
+
+    p {
+        font-size: 2em;
+        font-weight: 450;
+        margin-top: 60px;
+    }
+
+    #learnmore {
+        background-color: #0171e3;
+        font-family: inter, helvetica, sans-serif;
+        font-weight: 200;
+        font-size: 25px;
+        color: white;
+        border: 0;
+        padding: 0.4em 0.9em;
+        border-radius: 2em;
+        line-height: normal;
+        margin-top: 20px;
+        margin-bottom: 70px;
+    }
+
+    #learnmore:hover {
+        background-color: #398cf1;
+    }
+}
+
+
+@media (max-width: 1050px) {
+    .main_AirPods_Max .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .main_AirPods_Max .container img {
+        width: 70%;
+        margin-top: 15px;
+    }
+
+    .main_AirPods_Max .container h2 {
+        position: static;
+        transform: none;
+        font-size: 4em;
+        margin-top: 20px;
+        z-index: 1;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .main_AirPods_Max p {
+        font-size: 1em;
+        margin-top: 0px;
+    }
+
+    .main_AirPods_Max #learnmore {
+        font-size: 20px;
+    }
+}

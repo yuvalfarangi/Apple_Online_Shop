@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+</head>
+
+<style>
+    #storageSizeContainer {
+        display: flex;
+        flex-direction: row;
+        gap: 5px;
+    }
+
+    .storageOption[type="radio"] {
+        display: none;
+    }
+
+    .storageOptionLabel {
+        border: 1px solid #d1d1d1;
+        border-radius: 12px;
+        padding: 15px 30px;
+        margin: 20px 0px;
+        font-size: 1em;
+        font-family: Helvetica, Arial, sans-serif;
+        cursor: pointer;
+        text-align: center;
+        flex-grow: 1;
+    }
+
+    .storageOption[type="radio"]:checked+label {
+        border-color: #0071e3;
+        box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.3);
+        color: #0071e3;
+    }
+</style>
+
+<body>
+    <div id="storageSizeContainer">
+        <% for(let sizeOption of item.storageSize){ %>
+            <input type="radio" name="storageSize" value="<%= sizeOption %>" required id="<%= sizeOption %>"
+                class="storageOption">
+            <label for="<%= sizeOption %>" class="storageOptionLabel">
+                <%= sizeOption %>
+            </label>
+            <% } %>
+    </div>
+</body>
+
+</html>

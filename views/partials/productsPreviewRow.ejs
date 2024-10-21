@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+</head>
+
+<body>
+
+    <section id="shopping">
+        <% for(let item of items){ %>
+            <%- include('./productCard.ejs', {item}) %>
+                <% }%>
+    </section>
+
+</body>
+
+</html>
+
+<style>
+    #shopping {
+        display: flex;
+        flex-direction: row;
+        padding: 50px;
+        justify-content: center;
+        text-align: center;
+        background-color: #f6f6f6;
+        flex-wrap: wrap;
+        box-sizing: content-box;
+        gap: 15px;
+    }
+</style>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('partials/generic.ejs')%>
+        <link rel="stylesheet" href="/css/viewItem.css">
+</head>
+
+<body>
+    <%- include('partials/topNavBar.ejs')%>
+
+        <div id="main">
+            <img id="imgItem" src="<%= item.image_src %>" alt="">
+
+            <div id="item_deatils">
+                <form action="/cart" method="POST">
+                    <input type="text" name="product_id" value="<%= item._id %>" style="display: none;">
+                    <input type="hidden" value="" name="image_src" id="image_src">
+
+                    <h1>Buy <%= item.displayName %>
+                    </h1>
+                    <h2 id="deatils">
+                        <%= item.description_short %>
+                    </h2>
+                    <p>
+                        <%= item. description_long %>
+                    </p>
+
+                    <% if (item.color.length>0){ %>
+                        <%- include('partials/colorSelector.ejs', {item}) %>
+                            <% } %>
+
+                                <% if (item.storageSize.length>0){ %>
+                                    <%- include('partials/storageSizeSelector.ejs', {item}) %>
+                                        <% } %>
+
+                                            <span id="price">
+                                                <%= item.price+item.priceUnit %>
+                                            </span> <br>
+
+                                            <button id="buyButton" type="submit">Add to cart</button>
+
+                </form>
+            </div>
+
+        </div>
+
+
+        <%- include('partials/bottomNavBar.ejs')%>
+
+            <script src="../js/shop/viewItem.js"></script>
+</body>
+
+</html>

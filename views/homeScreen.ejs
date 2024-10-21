@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('partials/generic.ejs')%>
+        <link rel="stylesheet" href="/css/HomeScreen.css">
+</head>
+
+<body>
+    <%- include('partials/topNavBar.ejs')%>
+
+        <!-- <div style="height: 65px;"></div> -->
+
+        <!-- iphone 16 -->
+        <div id="iphone16">
+            <h1>iPhone 20 Pro</h1>
+            <h2 id="iphone16description">so Light, so Powerful, so Pro</h2>
+            <button id="learnmore">learn more</button>
+        </div>
+
+        <section id="ipadMini">
+            <div id="ipadMiniDeatils">
+                <h2 id="ProductName">iPad Mini</h2>
+                <p id="ProductDescription">Coming this summer.</p>
+                <button id="iPadBuyButton">Learn More</button>
+            </div>
+            <img src="/pictures/homeScreen/ipadMini.png" alt="">
+        </section>
+
+        <section id="productCards">
+            <!-- http://localhost:300/items/670111f5d3ffc4ac684695b8 -->
+            <% let productName="AirPods Pro" %>
+                <% let productDescription="Hello, H2 Chip." %>
+                    <% let backgroundImage="/pictures/homeScreen/AirPodsProDisplay.jpg" %>
+                        <% let itemID="670111f5d3ffc4ac684695b8" %>
+
+                            <%- include('partials/productDisplayCard.ejs', {productName: productName
+                                ,productDescription:productDescription,backgroundImage:backgroundImage,itemID:itemID})%>
+
+                                <% productName="AirPods 3" %>
+                                    <% productDescription="Available with Active Noise Canecllation." %>
+                                        <% backgroundImage="/pictures/homeScreen/AirPods3Display.jpg" %>
+                                            <% itemID="670111f5d3ffc4ac684695ba" %>
+
+                                                <%- include('partials/productDisplayCard.ejs', {productName: productName
+                                                    ,productDescription:productDescription,backgroundImage:backgroundImage,itemID:itemID})%>
+
+        </section>
+
+
+
+        <%- include('partials/bottomNavBar.ejs')%>
+            <script src="/js/homeScreen/homeScreen.js"></script>
+</body>
+
+</html>

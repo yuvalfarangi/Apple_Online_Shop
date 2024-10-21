@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<style>
+    #select_color {
+        display: flex;
+        flex-direction: row;
+        gap: 4px;
+        align-items: center;
+        justify-content: first baseline;
+        margin: 10px 0px;
+    }
+
+    .colorRadioButton[type="radio"] {
+        appearance: none;
+        width: 1.3em;
+        height: 1.3em;
+        border-radius: 50%;
+        display: inline-block;
+        background-color: red;
+        margin: 0px;
+        border: 1px solid rgb(141, 141, 141);
+    }
+
+    .colorRadioButton[type="radio"]:checked {
+        background-color: red;
+        border: 1px solid rgb(22, 22, 22);
+    }
+</style>
+
+<body>
+
+    <div id="select_color">
+
+        <% for(let color of item.color){ %>
+            <label>
+                <input type="radio" name="color" value="<%= color %>" required class="colorRadioButton"
+                    id="RadioColor<%= color %>">
+            </label>
+            <% } %>
+    </div>
+
+
+    <script>
+        const colors = {
+            Midnight: "#2f3641",
+            Starlight: "#f0e5d2",
+            ProductRED: "#b90e2f",
+            White: "#f2f2f2",
+            Blue: "#325468",
+            Purple: "#d4ccdc",
+            Yellow: "#fef495",
+            Orange: "#e77254",
+            DesertTitanium: "#c1a694",
+            NaturalTitanium: "#c5c0b8",
+            WhiteTitanium: "#f2f1ee",
+            BlackTitanium: "#494949",
+            Silver: "#e3e4e6",
+            SpaceGray: "#7d7e80"
+
+        };
+
+        const radioButtons = Array.from(document.querySelectorAll(".colorRadioButton"));
+
+        const itemColors = [];
+        for (let btn of radioButtons) [
+            itemColors.push(btn.id.split("RadioColor").pop())
+        ]
+
+        for (let btn of radioButtons) {
+            btn.style.backgroundColor = colors[btn.id.split("RadioColor").pop()];
+        }
+    </script>
+</body>
+
+
+</html>

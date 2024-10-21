@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+</head>
+
+<body>
+
+    <div id="product">
+        <img src="<%= item.image_src %>" alt="" id="product_img">
+        <h2 id="productName">
+            <%= item.displayName %>
+        </h2>
+        <h3 id="details">
+            <%= item.description_short %>
+        </h3>
+        <p id="Price">starts at <%= item.price + item.priceUnit %>
+        </p>
+        <button id="buyButton" onclick='window.location.href="/items/<%= item._id %>"'>Take a look</button>
+    </div>
+
+</body>
+
+</html>
+
+
+<style>
+    #product {
+        box-sizing: content-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin: 10px;
+        padding: 15px;
+        border-radius: 2em;
+        width: 350px;
+        height: 500px;
+        transition: 0.5s;
+        margin: 0px;
+        white-space: normal;
+        word-wrap: break-word;
+        flex: 0 0 auto;
+    }
+
+    #product:hover {
+        transform: scale(1.04);
+    }
+
+    #product_img {
+        width: 12em;
+        height: auto;
+    }
+
+    #productName {
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 2em;
+        font-weight: 550;
+        color: #1d1d1f;
+        margin-bottom: 0;
+        margin-top: 20px;
+    }
+
+    #details {
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 1em;
+        font-weight: 200;
+        color: #545454;
+        margin: 0;
+        overflow-wrap: break-word;
+    }
+
+    #Price {
+        font-family: Helvetica, Arial, sans-serif;
+        margin: 15px;
+        font-size: 1.2em;
+        font-weight: 300;
+        color: #545454;
+    }
+
+    #buyButton {
+        background-color: #0171e3;
+        font-family: inter, helvetica, sans-serif;
+        font-weight: 200;
+        font-size: 20px;
+        color: white;
+        border: 0;
+        padding: 0.3em 0.9em;
+        margin: 5px;
+        height: fit-content;
+        border-radius: 1em;
+        text-decoration: none
+    }
+
+    #buyButton:hover {
+        background-color: #398cf1;
+    }
+</style>

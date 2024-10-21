@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('partials/generic.ejs')%>
+        <link rel="stylesheet" href="/css/account.css">
+</head>
+
+<body>
+    <%- include('partials/topNavBar.ejs')%>
+
+        <section id="login" class="main">
+
+            <h1>Sign in to Apple site.</h1>
+            <form action="/login" method="post" id="logInForm">
+
+                <div class="form-group">
+                    <label for="loginusername">User name:</label>
+                    <input class="form-control" id="loginusername" type="text" placeholder="Enter your user name"
+                        name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginpassword">Password:</label>
+                    <input class="form-control" id="loginpassword" type="password" placeholder="Enter your password"
+                        name="password" required>
+                </div>
+
+                <% if (incorrectAlert) { %>
+                    <div class="ErrorMsg">
+                        <%= incorrectAlert %>
+                    </div>
+                    <% } %>
+
+
+                        <div class="btnSection">
+                            <button class="formBtn1" type="button" id="switchToSigup">Sign Up</button>
+                            <button class="formBtn2" id="login" type="submit">Log in</button>
+                        </div>
+            </form>
+
+        </section>
+
+        <!-- ----------------------------------------------------------------------- -->
+
+        <section id="signup" class="main">
+
+            <h1>Sign up to Apple site.</h1>
+            <form action="/signup" method="post" id="signUpForm">
+
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="firstName">First name</label>
+                        <input class="form-control" type="text" id="firstName" placeholder="Enter your first name"
+                            name="firstName" value="<%= formData ? formData.firstName : '' %>" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="lastName">Last name</label>
+                        <input class="form-control" type="text" id="lastName" placeholder="Enter your last name"
+                            name="lastName" value="<%= formData ? formData.lastName : '' %>" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="username">User name:</label>
+                    <input class="form-control" id="username" type="text" placeholder="Enter your user name"
+                        name="username" value="<%= formData ? formData.username : '' %>" required>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-8">
+                        <label for="email">Email</label>
+                        <input class="form-control" type="email" id="email" name="email" placeholder="Email@apple.com"
+                            value="<%= formData ? formData.email : '' %>" required>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="phoneNumber">Phone Number</label>
+                        <input class="form-control" type="text" id="phoneNumber" name="phoneNumber"
+                            placeholder="050-0000-000" value="<%= formData ? formData.phoneNumber : '' %>" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input class="form-control" id="password" type="password" placeholder="Enter your password"
+                        name="password" value="<%= formData ? formData.password : '' %>" required>
+                </div>
+
+
+                <% for(msg of errorMsgs){ %>
+                    <div id="signUpErrorMsgs">
+                        <p class="ErrorMsg">
+                            <%=msg %>
+                        </p>
+                    </div>
+                    <% } %>
+
+                        <div class="btnSection">
+                            <button class="formBtn1" type="button" id="switchToLogin">Log in</button>
+                            <button class="formBtn2" id="signup" type="submit">Sign Up</button>
+                        </div>
+            </form>
+
+        </section>
+
+
+        <%- include('partials/bottomNavBar.ejs')%>
+
+            <script src="/js/account/account.js"></script>
+</body>
+
+</html>

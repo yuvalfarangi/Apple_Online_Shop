@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="/css/productDisplayCard.css">
+</head>
+
+<body>
+
+    <!-- this retrive: productName, productDescription, backgroundImage, itemID -->
+    <% if(productName|| productDescription || backgroundImage ||itemID) { %>
+
+        <div class="card" style=" background-image: url(<%=backgroundImage%>);">
+            <div class="card-content">
+
+                <p class="cardProductName">
+                    <%= productName %>
+                </p>
+                <p class="cardProductDescription">
+                    <%=productDescription %>
+                </p>
+                <a href="/items/<%=itemID%>" class="cardBuyButton">Take a look</a>
+            </div>
+        </div>
+
+
+        <% }else{ %>
+            <% const title1="No Product found." %>
+                <% const title2="" %>
+                    <%- include('partials/alertMessage.ejs', {title1, title2}) %>
+                        <% } %>
+</body>
+
+</html>

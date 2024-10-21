@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('partials/generic.ejs')%>
+        <link rel="stylesheet" href="/css/shop.css">
+</head>
+
+<body>
+    <%- include('partials/topNavBar.ejs')%>
+
+        <div id="main">
+            <h1 id="title"><span>Apple Store.</span> <br>Who need two kidneys?</h1> <br>
+
+            <nav id="navbar-categories">
+                <ul>
+                    <% for (let category in items) { %>
+                        <li id="category-navbar">
+                            <% if (items[category].length> 0) { %>
+
+                                <img src="<%= items[category][0].categoryBitmap %>" alt="" class="nav-category-bitmap"
+                                    id="bitmapFor<%= category %>">
+                                <% } %>
+                                    <p id="nav-category-name">
+                                        <%= category %>
+                                    </p>
+                        </li>
+                        <% } %>
+                </ul>
+            </nav>
+
+            <% if (Object.keys(items).length===0) { %>
+                <%- include('partials/alertScreen.ejs',{title1:"No products found.",title2:""})%>
+                    <% } %>
+
+                        <div>
+                            <% for (let category in items) { %>
+                                <section id="<%= category %>" class="productsSection">
+                                    <div class="category-section" id="sectionCategory<%= category %>">
+                                        <% if (items[category].length> 0) { %>
+                                            <img src="<%= items[category][0].categoryBitmap %>" alt=""
+                                                id="category-bitmap">
+                                            <% } %>
+                                                <p id="category-name">
+                                                    <%= category %>
+                                                </p>
+                                    </div>
+
+
+                                    <!-- Separate results container for each category -->
+                                    <div class="products" id="products<%= category %>">
+                                        <% items[category].forEach(item=> { %>
+                                            <%- include('partials/productCard.ejs', {item}) %>
+                                                <% }); %>
+                                    </div>
+                                </section>
+                                <% } %>
+
+                        </div>
+
+
+        </div>
+
+        <!-- cart -->
+        <div id="cartBtn">
+            <img src="/pictures/store/shopping-bag.png" alt="" onclick="window.location.href='/cart'">
+
+            <% if (items_in_cart>0){ %>
+                <div id="cartCounter">
+                    <span>
+                        <%= items_in_cart %>
+                    </span>
+                </div>
+                <% } %>
+        </div>
+
+
+        <%- include('partials/bottomNavBar.ejs')%>
+
+            <script src="/js/shop/shop.js"></script>
+</body>
+
+</html>

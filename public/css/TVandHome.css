@@ -1,0 +1,185 @@
+#main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: rgb(245, 245, 245);
+    padding: 70px;
+
+    img {
+        width: 60%;
+        margin: 30px;
+    }
+
+    h1 {
+        color: #181818;
+        font-size: 9vw;
+        font-weight: 700;
+        width: 100%;
+        white-space: nowrap;
+
+        span {
+            background: -webkit-linear-gradient(0deg, #ffa745, #fe869f 30%, #ef7ac8 45%, #a083ed 70%, #43aeff 85%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
+
+    p {
+        display: flex;
+        max-width: 1000px;
+        font-size: 25px;
+        font-weight: 450;
+        color: #86868b;
+    }
+
+    #learnmore {
+        background-color: #0171e3;
+        font-family: inter, helvetica, sans-serif;
+        font-weight: 200;
+        font-size: 25px;
+        color: white;
+        border: 0;
+        padding: 0.4em 0.9em;
+        border-radius: 2em;
+        line-height: normal;
+        margin-top: 20px;
+        margin-bottom: 70px;
+    }
+
+    #learnmore:hover {
+        background-color: #398cf1;
+    }
+}
+
+
+#homePodBuyButton {
+    background-color: transparent;
+    border: 1px solid #0171e3;
+    font-family: inter, helvetica, sans-serif;
+    font-weight: 200;
+    width: fit-content;
+    font-size: 18px;
+    color: #0171e3;
+    padding: 0.3em 0.9em;
+    height: fit-content;
+    border-radius: 20px;
+    text-decoration: none;
+}
+
+#homePodBuyButton:hover {
+    background-color: #0171e3;
+    color: white;
+    border: 1px solid #0171e3;
+}
+
+@media(max-width: 900px) {
+
+    #homePodBuyButton {
+        font-size: 15px;
+    }
+}
+
+#homePod {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    justify-content: space-between;
+    background-color: black;
+
+    img {
+        margin: 30px 0px 0px 0px;
+        width: 40%;
+        height: auto;
+    }
+
+    #homePodDeatils {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: left;
+        padding: 0px 50px 0px 100px;
+    }
+
+    #ProductName {
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 50px;
+        font-weight: 600;
+        color: white;
+        margin-bottom: 0;
+        margin-top: 50px;
+    }
+
+    #ProductDescription {
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 20px;
+        font-weight: 500;
+        color: #d2d2d7;
+        margin: 5px 5px 20px 0px;
+        overflow-wrap: break-word;
+    }
+}
+
+#productCards {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+@media(max-width: 800px) {
+    #productCards {
+        flex-direction: column;
+    }
+
+    #homePod {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #homePod img {
+        align-self: flex-end;
+        width: 80%;
+    }
+
+    #homePod #homePodDeatils #ProductName {
+        font-size: 40px;
+    }
+
+    #homePod #homePodDeatils #ProductDescription {
+        font-size: 18px;
+    }
+
+    #homePod #homePodDeatils {
+        padding: 50px 50px 0px 50px;
+    }
+
+}
+
+@media(max-width: 900px) {
+
+    #main {
+        padding: 50px;
+    }
+
+    #main img {
+        width: 90%;
+    }
+
+    #main h1 {
+        width: 100%;
+        font-size: 10vw;
+    }
+
+    #main p {
+        font-size: 15px;
+    }
+
+    #main #learnmore {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+}

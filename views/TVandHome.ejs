@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('partials/generic.ejs')%>
+        <link rel="stylesheet" href="/css/TVandHome.css">
+</head>
+
+<body>
+    <%- include('partials/topNavBar.ejs')%>
+
+        <div id="main">
+
+            <div class="container">
+                <img src="pictures/appleTV&home/homeKit.jpg" alt="">
+                <h1><span>Siri,</span> meets Home.</h1>
+
+            </div>
+
+            <p>Simply connect your favorite devices and transform your house into a remarkably smart, convenient, and
+                entertaining home. Elevate movie night with theater-like picture and sound. Play any song, in any room,
+                from anywhere. And control lights, locks, and thermostats using Siri. All with the security and privacy
+                of Apple.</p>
+            <button id="learnmore">Learn More</button>
+
+        </div>
+
+        <section id="homePod">
+            <div id="homePodDeatils">
+                <h2 id="ProductName">HomePod</h2>
+                <p id="ProductDescription">HomePod is a powerhouse of a speaker. Apple‑engineered audio technology and
+                    advanced software deliver high‑fidelity sound throughout the room. It intelligently adapts to
+                    whatever it’s playing — or wherever it’s playing — and surrounds you in immersive audio that makes
+                    everything you listen to sound incredible.</p>
+                <button id="homePodBuyButton">Learn More</button>
+            </div>
+            <img src="/pictures/appleTV&home/homePodPreview.png" alt="">
+        </section>
+
+        <%- include('partials/productsPreviewRow.ejs', {items}) %>
+
+
+
+            <%- include('partials/bottomNavBar.ejs')%>
+</body>
+
+</html>
+
+<script>
+
+    document.getElementById('learnmore').addEventListener('click', function () {
+        document.getElementById('shopping').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    document.querySelector('#homePodBuyButton').addEventListener('click', () => {
+        window.location.href = "/items/670111f5d3ffc4ac684695e4";
+    })
+
+</script>

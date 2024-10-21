@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('partials/generic.ejs')%>
+        <link rel="stylesheet" href="/css/cart.css">
+</head>
+
+<body>
+    <%- include('partials/topNavBar.ejs')%>
+        <% let totalprice=0; %>
+
+            <% if(loggedInUser){ %>
+                <div style="display: none;" id="loggedInUser"></div>
+                <%}%>
+
+                    <% if(cartitems.length==0){ %>
+                        <% const title1="Your cart is empty." %>
+                            <% const title2="Take a tour at Apple Store" %>
+                                <%- include('partials/alertMessage.ejs', {title1, title2}) %>
+                                    <% } %>
+
+
+                                        <% if(cartitems.length!=0){ %>
+                                            <div id="main">
+                                                <section id="cartView">
+                                                    <h1>Review your cart.</h1>
+                                                    <% for(let item of cartitems){ %>
+                                                        <div class="product_display">
+                                                            <% totalprice+=item.price %>
+                                                                <img src="<%= item.image_src %>" alt=""
+                                                                    class="product_img">
+
+                                                                <div class="product_details">
+                                                                    <span class="product_name">
+                                                                        <%= item.displayName %>
+                                                                    </span>
+                                                                    <div class="additional_info">
+                                                                        <% if(item.storageSize){ %>
+                                                                            <span>
+                                                                                <%= item.storageSize %>
+                                                                            </span>
+                                                                            <% } %>
+                                                                                <% if(item.color){ %>
+                                                                                    <span>
+                                                                                        <%= item.color %>
+                                                                                    </span>
+                                                                                    <% } %>
+                                                                    </div>
+                                                                </div>
+
+                                                                <span class="product_price">
+                                                                    <%= item.price + item.priceUnit %>
+                                                                </span>
+
+                                                                <!-- Make sure each delete form is properly defined -->
+                                                                <form action="/cart/<%= item.id %>?_method=DELETE"
+                                                                    method="post" class="deleteProductForm">
+                                                                    <button class="deleteProductBtn" type="submit">
+                                                                        <img src="/pictures/cart/trashCan.png" alt="">
+                                                                    </button>
+                                                                </form>
+                                                        </div>
+                                                        <hr>
+                                                        <% } %>
+
+                                                            <footer>
+                                                                <div class="btnSection">
+                                                                    <form action="/cart/all?_method=DELETE"
+                                                                        method="post" id="emptyCartForm">
+                                                                        <button class="formBtn1" id="emptyCartBtn">Empty
+                                                                            cart</button type="button">
+                                                                    </form>
+
+
+                                                                    <button class="formBtn2" type="button"
+                                                                        id="form1next">Next</button>
+                                                                </div>
+                                                                <span id="totalprice">
+                                                                    <%= totalprice+"$" %>
+                                                                </span>
+                                                            </footer>
+                                                </section>
+
+
+                                                <!-- ------------------------------------------------------------------------------------ -->
+
+                                                <section id="shipment">
+                                                    <h1>Shipment.</h1>
+                                                    <p id="shipmentErrorMsg"> </p>
+                                                    <form action="/orders" method="POST" id="mainForm">
+                                                        <% if(loggedInUser){ %>
+                                                            <input type="hidden" name="products"
+                                                                value="<%= JSON.stringify(cartitems) %>">
+
+                                                            <input type="hidden" name="userID"
+                                                                value="<%=loggedInUser._id%>">
+
+
+                                                            <div class="row">
+                                                                <div class="form-group col-md-6">
+                                                                    <label for="firstName">First name</label>
+                                                                    <input class="form-control" type="text"
+                                                                        id="firstName"
+                                                                        placeholder="Enter your first name"
+                                                                        name="firstName"
+                                                                        value="<%=loggedInUser.firstName%>">
+                                                                </div>
+                                                                <div class="form-group col-md-6">
+                                                                    <label for="lastName">Last name</label>
+                                                                    <input class="form-control" type="text"
+                                                                        id="lastName" placeholder="Enter your last name"
+                                                                        name="lastName"
+                                                                        value="<%=loggedInUser.lastName%>">
+                                                                </div>
+                                                            </div>
+
+
+                                                            <div class="form-group">
+                                                                <label for="Address">Address</label>
+                                                                <input class="form-control" id="Adress" type="text"
+                                                                    placeholder="Address to shipment" name="Address">
+                                                            </div>
+
+
+                                                            <div class="row">
+                                                                <div class="form-group col-md-8">
+                                                                    <label for="email">Email</label>
+                                                                    <input class="form-control" type="email" id="email"
+                                                                        name="email" placeholder="Email@apple.com"
+                                                                        value="<%=loggedInUser.email%>">
+                                                                </div>
+
+                                                                <div class="form-group col-md-4">
+                                                                    <label for="phoneNumber">Phone Number</label>
+                                                                    <input class="form-control" type="phoneNumber"
+                                                                        id="phoneNumber" name="phoneNumber"
+                                                                        placeholder="050-0000-000"
+                                                                        value="<%=loggedInUser.phoneNumber%>">
+                                                                </div>
+                                                            </div>
+
+
+                                                            <div class="form-group">
+                                                                <label for="OrderNotes">Noets about the
+                                                                    order</label>
+                                                                <textarea class="form-control" name="OrderNotes"
+                                                                    id="OrderNotes" placeholder="Type Here..." rows="5"
+                                                                    cols="30"></textarea>
+                                                            </div>
+
+
+
+                                                            <footer>
+                                                                <div class="btnSection">
+                                                                    <button class="formBtn1" type="button"
+                                                                        id="form2previous">Previous</button>
+                                                                    <button type="button" class="formBtn2"
+                                                                        id="form2next">Next</button>
+                                                                </div>
+                                                                <span id="totalprice">
+                                                                    <%= totalprice+"$" %>
+                                                                </span>
+                                                            </footer>
+                                                            <% } %>
+                                                    </form>
+                                                </section>
+
+
+                                                <!-- ------------------------------------------------------------------------------------ -->
+
+                                                <section id="payment">
+                                                    <h1>Time to Pay.</h1>
+                                                    <p id="paymentErrorMsg"> </p>
+                                                    <form action="/orders/payment" method="POST" id="paymentForm">
+
+                                                        <div class="form-group">
+                                                            <label for="costumerID">Card's owner ID</label>
+                                                            <input class="form-control" id="costumerID" type="text"
+                                                                placeholder="Card's owner ID" name="costumerID">
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="CreditCardNumber">Credit Card number</label>
+                                                            <input class="form-control" id="CreditCardNumber"
+                                                                type="text" placeholder="***************"
+                                                                name="CreditCardNumber">
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="form-group col">
+                                                                <label for="date">Expiry Date</label>
+                                                                <input class="form-control" id="date" type="text"
+                                                                    placeholder="MM-YYYY" name="date">
+                                                            </div>
+                                                            <div class="form-group col">
+                                                                <label for="CVV">Card Verification Value</label>
+                                                                <input class="form-control" id="CVV" type="text"
+                                                                    placeholder="CVV" name="CVV">
+                                                            </div>
+                                                            <input type="hidden" name="totalprice"
+                                                                value="<%= totalprice %>">
+                                                        </div>
+
+                                                        <footer>
+                                                            <div class="btnSection">
+                                                                <button class="formBtn1" type="button"
+                                                                    id="form3previous">Previous</button>
+                                                                <button class="formBtn2" id="submitOrderBtn"
+                                                                    type="submit">Submit
+                                                                    order</button>
+                                                            </div>
+                                                            <span id="totalprice">
+                                                                <%= totalprice+"$" %>
+                                                            </span>
+                                                        </footer>
+
+                                                    </form>
+
+                                                </section>
+
+
+
+                                                <!-- ------------------------------------------------------------------------------------ -->
+
+
+                                                <section id="paymentApproved">
+                                                    <h1>Payment approved!</h1>
+                                                    <% for(let item of cartitems){ %>
+                                                        <div class="product_display">
+                                                            <img src="<%= item.image_src %>" alt="" class="product_img">
+
+                                                            <div class="product_details">
+                                                                <span class="product_name">
+                                                                    <%= item.displayName %>
+                                                                </span>
+                                                                <div class="additional_info">
+                                                                    <% if(item.storageSize){ %>
+                                                                        <span>
+                                                                            <%= item.storageSize %>
+                                                                        </span>
+                                                                        <% } %>
+                                                                            <% if(item.color){ %>
+                                                                                <span>
+                                                                                    <%= item.color %>
+                                                                                </span>
+                                                                                <% } %>
+                                                                </div>
+                                                            </div>
+
+                                                            <span class="product_price">
+                                                                <%= item.price + item.priceUnit %>
+                                                            </span>
+                                                        </div>
+                                                        <hr>
+                                                        <% } %>
+
+                                                            <footer>
+                                                                <div class="btnSection">
+                                                                    <button class="formBtn2" type="button"
+                                                                        id="backToHome">Back
+                                                                        to
+                                                                        Home</button>
+                                                                </div>
+                                                                <span id="totalprice">
+                                                                    <%= totalprice+"$" %>
+                                                                </span>
+                                                            </footer>
+                                                </section>
+                                            </div>
+
+                                            <!-- ------------------------------------------------------------------------------------ -->
+
+                                            <section id="paymentFailed">
+                                                <% const title1="Sorry, unable to process payment" %>
+                                                    <%- include('partials/alertMessage.ejs', {title1, title2:""}) %>
+                                            </section>
+
+
+                                            <% } %>
+                                                <%- include('partials/bottomNavBar.ejs')%>
+                                                    <script src="/js/cart/cart.js"></script>
+</body>
+
+</html>
