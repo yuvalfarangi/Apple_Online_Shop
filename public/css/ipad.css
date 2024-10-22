@@ -2,15 +2,6 @@ body {
     margin: 0 !important;
 }
 
-#Video {
-    width: 100%;
-    height: auto;
-    margin: 0;
-    padding: 0;
-    border: none;
-    display: block;
-}
-
 
 #iPadPrice {
     font-family: inter, helvetica, sans-serif;
@@ -61,7 +52,6 @@ body {
     }
 
     #ProductName {
-        font-family: Helvetica, Arial, sans-serif;
         font-size: 45px;
         font-weight: 550;
         color: black;

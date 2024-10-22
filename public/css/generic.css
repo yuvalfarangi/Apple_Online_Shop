@@ -7,3 +7,36 @@ body {
     margin: 0;
     padding: 0;
 }
+
+.deatilsBtn {
+    background-color: #0171e3;
+    font-family: inter, helvetica, sans-serif;
+    font-weight: 200;
+    font-size: 20px;
+    color: white;
+    border: 0;
+    width: fit-content;
+    padding: 0.4em 0.9em;
+    border-radius: 2em;
+    line-height: normal;
+}
+
+.deatilsBtn:hover {
+    background-color: #398cf1;
+}
+
+@media(max-width: 900px) {
+
+    .deatilsBtn {
+        font-size: 15px;
+    }
+}
+
+.Video {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    border: none;
+    display: block;
+}

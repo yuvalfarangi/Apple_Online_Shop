@@ -49,21 +49,7 @@ body {
     }
 
     #learnmore {
-        background-color: #0171e3;
-        font-family: inter, helvetica, sans-serif;
-        font-weight: 200;
-        font-size: 25px;
-        color: white;
-        border: 0;
-        padding: 0.4em 0.9em;
-        border-radius: 2em;
-        line-height: normal;
-        margin-top: 20px;
-        margin-bottom: 70px;
-    }
-
-    #learnmore:hover {
-        background-color: #398cf1;
+        margin-bottom: 50px;
     }
 }
 
@@ -97,7 +83,4 @@ body {
         margin-top: 0px;
     }
 
-    .main_AirPods_Max #learnmore {
-        font-size: 20px;
-    }
 }

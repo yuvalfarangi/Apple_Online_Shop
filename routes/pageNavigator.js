@@ -33,6 +33,19 @@ router.get('/Home', wrapAsync(async (req, res) => {
     res.render('TVandHome', { items });
 }));
 
+router.get('/Mac', wrapAsync(async (req, res) => {
+    const items = await DBstore_item.find({ category: 'Mac' });
+    if (!items) throw new AppError(500, "Failed retrive data from database");
+    res.render('mac', { items });
+}));
+
+router.get('/iPhone', wrapAsync(async (req, res) => {
+    const items = await DBstore_item.find({ category: 'iPhone' });
+    if (!items) throw new AppError(500, "Failed retrive data from database");
+    res.render('iphone', { items });
+}));
+
+
 router.use((req, res) => {
     res.status(404).render('alertScreen', { title1: "Oh no, it seems like the page you asked for not found.", title2: "maybe try Samsung website..." })
 })

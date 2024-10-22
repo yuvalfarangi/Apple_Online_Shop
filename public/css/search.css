@@ -43,7 +43,7 @@ body {
 
 #category-bitmap {
     width: 30px;
-    height: fit-content;
+    height: auto;
     margin: 0px 10px;
     mix-blend-mode: multiply;
 }

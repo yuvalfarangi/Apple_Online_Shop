@@ -21,7 +21,7 @@
                 entertaining home. Elevate movie night with theater-like picture and sound. Play any song, in any room,
                 from anywhere. And control lights, locks, and thermostats using Siri. All with the security and privacy
                 of Apple.</p>
-            <button id="learnmore">Learn More</button>
+            <button class="deatilsBtn" id="homeSectionBtn">Learn More</button>
 
         </div>
 
@@ -37,6 +37,15 @@
             <img src="/pictures/appleTV&home/homePodPreview.png" alt="">
         </section>
 
+
+        <section id="appleTV">
+            <h2>Watch, sing, play, and work out. <br>
+                On the big screen.</h2>
+            <button class="deatilsBtn" id="appleTVlearnMore">Learn More</button>
+            <video src="/pictures/appleTV&home/appleTVdisplay.mp4" class="Video" autoplay muted playsinline
+                loop></video>
+        </section>
+
         <%- include('partials/productsPreviewRow.ejs', {items}) %>
 
 
@@ -48,12 +57,15 @@
 
 <script>
 
-    document.getElementById('learnmore').addEventListener('click', function () {
+    document.getElementById('homeSectionBtn').addEventListener('click', function () {
         document.getElementById('shopping').scrollIntoView({ behavior: 'smooth' });
     });
 
     document.querySelector('#homePodBuyButton').addEventListener('click', () => {
         window.location.href = "/items/670111f5d3ffc4ac684695e4";
-    })
+    });
+    document.querySelector('#appleTVlearnMore').addEventListener('click', () => {
+        window.location.href = "/items/670111f5d3ffc4ac684695e2";
+    });
 
 </script>

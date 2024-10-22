@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('partials/generic.ejs')%>
+        <link rel="stylesheet" href="/css/iphone.css">
+</head>
+
+<body>
+    <%- include('partials/topNavBar.ejs')%>
+        <%- include('partials/pageTitle.ejs', {N:"iPhone",t1:"Designed to be loved", t2:"with Apple Intelligence."})%>
+
+            <video src="/pictures/iphone/iphoneDisplay.mp4" class="Video" autoplay muted playsinline loop></video>
+
+            <div id="appleIIntelligence">
+                <h2><span>Apple Intelligence.</span> <br>AI-opening possibilities.</h2>
+                <img src="/pictures/iphone/apple_intelligence.jpg" alt="">
+            </div>
+
+            <div id="iphone20pro">
+                <p>iPhone 20 Pro is built for Apple Intelligence, the personal intelligence system that helps you write,
+                    express yourself, and get things done effortlessly. With groundbreaking privacy protections, it
+                    gives you peace of mind that no one else can access your data — not even Apple.</p>
+                <button class="deatilsBtn" onclick="window.location.href='/items/670111f5d3ffc4ac684695be'">Learn
+                    More</button>
+            </div>
+            <%- include('partials/productsPreviewRow.ejs', {items}) %>
+
+                <%- include('partials/bottomNavBar.ejs')%>
+</body>
+
+</html>

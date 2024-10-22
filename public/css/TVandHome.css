@@ -32,27 +32,10 @@
         font-size: 25px;
         font-weight: 450;
         color: #86868b;
+        margin-bottom: 30px;
     }
 
-    #learnmore {
-        background-color: #0171e3;
-        font-family: inter, helvetica, sans-serif;
-        font-weight: 200;
-        font-size: 25px;
-        color: white;
-        border: 0;
-        padding: 0.4em 0.9em;
-        border-radius: 2em;
-        line-height: normal;
-        margin-top: 20px;
-        margin-bottom: 70px;
-    }
-
-    #learnmore:hover {
-        background-color: #398cf1;
-    }
 }
-
 
 #homePodBuyButton {
     background-color: transparent;
@@ -124,6 +107,39 @@
     }
 }
 
+
+
+#appleTV {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #fbfbfb;
+    text-align: center;
+    padding: 90px;
+
+    h2 {
+        font-size: 55px;
+        font-weight: 650;
+        margin-bottom: 30px;
+    }
+
+    #appleTVlearnMore {
+        margin-bottom: 40px;
+    }
+
+    .Video {
+        width: 80%;
+        height: auto;
+        padding: 0;
+        border: 6px solid #151717;
+        display: block;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    }
+}
+
+
+
 #productCards {
     display: flex;
     flex-direction: row;
@@ -178,8 +194,16 @@
         font-size: 15px;
     }
 
-    #main #learnmore {
-        font-size: 20px;
-        margin-bottom: 20px;
+    #appleTV {
+        padding: 50px;
     }
+
+    #appleTV h2 {
+        font-size: 28px;
+    }
+
+    #appleTV .Video {
+        width: 100%;
+    }
+
 }

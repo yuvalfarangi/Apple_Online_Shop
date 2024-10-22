@@ -1,0 +1,55 @@
+#appleIIntelligence {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: white;
+    padding-top: 80px;
+
+    img {
+        width: 60%;
+        margin-top: 40px;
+    }
+
+    h2 {
+        color: #181818;
+        font-size: 5vw;
+        font-weight: 700;
+        width: 100%;
+        white-space: nowrap;
+
+        span {
+            background: -webkit-linear-gradient(0deg, #ffa745, #fe869f 30%, #ef7ac8 45%, #a083ed 70%, #43aeff 85%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
+
+}
+
+#iphone20pro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #f1f1f1;
+    padding: 70px;
+
+    p {
+        display: flex;
+        max-width: 1000px;
+        font-size: 20px;
+        font-weight: 500;
+        color: #86868b;
+        /* margin-bottom: 30px; */
+        line-height: normal;
+    }
+}
+
+@media(max-width: 900px) {
+    #iphone20pro p {
+        font-size: 15px;
+    }
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('partials/generic.ejs')%>
+        <link rel="stylesheet" href="/css/mac.css">
+</head>
+
+<body>
+    <%- include('partials/topNavBar.ejs')%>
+
+        <%- include('partials/pageTitle.ejs', {N:"Mac",t1:"if you can dream it", t2:"Mac can do it."})%>
+
+            <video src="/pictures/mac/macDisplay.mp4" class="Video" autoplay muted playsinline loop></video>
+
+            <div id="macbookAir">
+                <h2>Lean. Mean. M3 machine.</h2>
+                <p>MacBook Air sails through work and play — and the M3 chip brings even greater capabilities to the
+                    world’s
+                    most popular laptop. With up to 18 hours of battery life,1 you can take the superportable MacBook
+                    Air
+                    anywhere and blaze through whatever you’re into. And it’s built for Apple Intelligence, coming in
+                    beta
+                    this fall.</p>
+                <button id="learnmore" class="deatilsBtn">Learn More</button>
+            </div>
+            <video src="/pictures/mac/macbookAirDisplay.mov" class="Video" autoplay muted playsinline></video>
+
+            <%- include('partials/productsPreviewRow.ejs', {items}) %>
+
+                <%- include('partials/bottomNavBar.ejs')%>
+</body>
+
+<script>
+    document.querySelector('#learnmore').addEventListener('click', () => {
+        window.location.href = "/items/670839d5f66a4b2a52701132";
+    })
+</script>
+
+</html>
