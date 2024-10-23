@@ -45,9 +45,10 @@ integrating both server-side and client-side technologies for real-world e-comme
 -----------------------------------------------------
 
 
-Me:
-**********************
+**Me:**
+-----------------------
+
 Yuval Farangi
 GitHub: yuvalfarangi
-**********************
+
 
