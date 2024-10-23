@@ -12,7 +12,6 @@ const userSchema = new mongoose.Schema({
     cart_items: { type: [cartSchema], required: false }
 });
 
-//{ firstName, lastName, username, email, phoneNumber, password }
 userSchema.statics.validateNewUser = async (req) => {
 
     let formValidation = true;
