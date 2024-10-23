@@ -9,8 +9,9 @@ while the frontend uses EJS templating with HTML, CSS, and JavaScript to render 
 
 
 
-Key Features
-**********************
+
+**Key Features**
+-----------------------
 Product Catalog: Displays Apple products with dynamic options like colors and storage sizes.
 Shopping Cart: Allows users to add and remove products in their cart and make an order.
 User Authentication: Secure sign-up and login functionality using bcrypt for password hashing.
@@ -19,24 +20,24 @@ Responsive Design: User-friendly interface optimized for various device sizes us
 
 
 
-Tools & Technologies
-**********************
+
+**Tools & Technologies**
+-----------------------
 Backend: Express.js, MongoDB, Mongoose
 Frontend: EJS, HTML5, CSS3, JavaScript
 Authentication: bcrypt
 Version Control: Git & GitHub
 
 
-
-Summery
-**********************
+**Summery**
+-----------------------
 This project showcases my ability to build and deploy full-stack web applications, 
 integrating both server-side and client-side technologies for real-world e-commerce functionality.
 
 
 -----------------------------------------------------
 
-GET STARTED:
+**GET STARTED:**
 - Install all the dependencies noted in package.json
 - Install and setup MongoDB data base
 - Run index.js via node/nodemon
@@ -48,3 +49,5 @@ Me:
 **********************
 Yuval Farangi
 GitHub: yuvalfarangi
+**********************
+
