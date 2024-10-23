@@ -36,6 +36,7 @@ GET STARTED:
 - Install all the dependencies noted in package.json
 - Install and setup MongoDB data base
 - Run index.js via node/nodemon
+- Go to http://localhost:3000
 
 -----------------------------------------------------
 

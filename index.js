@@ -44,6 +44,6 @@ mongoose.connect('mongodb://127.0.0.1:27017/AppleSiteDB')
     .catch((e) => { console.log("ERROR connected to AppleSiteDB", e) })
 
 
-app.listen('300', () => {
-    console.log("listening on port 300");
+app.listen(3000, () => {
+    console.log("listening on port 3000");
 })
