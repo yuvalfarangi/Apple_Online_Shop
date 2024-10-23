@@ -1,11 +1,14 @@
 -------------------
+*******************
 OverView
--------------------
+
 Apple Online Shop is a full-stack web application replicating an Apple online store. 
 This project features a product catalog, shopping cart functionality 
 and user authentication for a seamless e-commerce experience. 
 The backend is built with Express.js and MongoDB (via Mongoose), 
 while the frontend uses EJS templating with HTML, CSS, and JavaScript to render dynamic content.
+*******************
+-------------------
 
 **********************
 Key Features
