@@ -45,6 +45,12 @@ router.get('/iPhone', wrapAsync(async (req, res) => {
     res.render('iphone', { items });
 }));
 
+router.get('/Watch', wrapAsync(async (req, res) => {
+    const items = await DBstore_item.find({ category: 'Watch' });
+    if (!items) throw new AppError(500, "Failed retrive data from database");
+    res.render('watch', { items });
+}));
+
 
 router.use((req, res) => {
     res.status(404).render('alertScreen', { title1: "Oh no, it seems like the page you asked for not found.", title2: "maybe try Samsung website..." })

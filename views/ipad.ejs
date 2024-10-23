@@ -42,9 +42,11 @@
                                                         ,productDescription:productDescription,backgroundImage:backgroundImage,itemID:itemID})%>
 
             </section>
-            <%- include('partials/productsPreviewRow.ejs', {items}) %>
+            <% if(items && items.length>0){ %>
+                <%- include('partials/productsPreviewRow.ejs', {items}) %>
+                    <% } %>
 
-                <%- include('partials/bottomNavBar.ejs')%>
+                        <%- include('partials/bottomNavBar.ejs')%>
 </body>
 
 </html>

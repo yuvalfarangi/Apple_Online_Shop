@@ -24,9 +24,31 @@
                 <button class="deatilsBtn" onclick="window.location.href='/items/670111f5d3ffc4ac684695be'">Learn
                     More</button>
             </div>
-            <%- include('partials/productsPreviewRow.ejs', {items}) %>
+            <% if(items && items.length>0){ %>
+                <%- include('partials/productsPreviewRow.ejs', {items}) %>
+                    <% } %>
 
-                <%- include('partials/bottomNavBar.ejs')%>
+                        <%- include('partials/bottomNavBar.ejs')%>
 </body>
+
+<script>
+    function addSlideTopClass() {
+        const heading = document.querySelector('#appleIIntelligence h2');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('slide-top');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.2
+        });
+
+        observer.observe(heading);
+    }
+    addSlideTopClass();
+</script>
 
 </html>

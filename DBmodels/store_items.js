@@ -16,7 +16,6 @@ const itemSchema = new mongoose.Schema(
         price: { type: Number, required: true, min: 0 },
         priceUnit: { type: String, required: true },
         image_src: { type: String, required: true },
-        onSale: { type: Boolean, default: false, required: false },
         color: { type: [String], required: false },
         storageSize: { type: [String], required: false },
         variants: { type: [variantSchema], required: true }
@@ -56,7 +55,8 @@ const categories = {
     iPhone: "/pictures/productsBitmap/iPhone.png",
     HomeKit: "/pictures/productsBitmap/AppleTV.png",
     Mac: "/pictures/productsBitmap/Mac.png",
-    iPad: "/pictures/productsBitmap/iPad.png"
+    iPad: "/pictures/productsBitmap/iPad.png",
+    Watch: "/pictures/productsBitmap/AppleWatch.png"
 }
 
 const applayCategoriesBitmap = async () => {
@@ -204,15 +204,16 @@ const EXAMPLE_ITEMS =
                 }
             ]
         },
+
         {
             category: 'iPhone',
-            displayName: 'iPhone 15',
-            description_short: "Just the way you want it.",
+            categoryBitmap: '/pictures/productsBitmap/iPhone.png',
+            displayName: 'iPhone 15 pro',
+            description_short: 'Just the way you want it.',
             description_long: 'The first iPhone built for Apple Intelligence. Personal, private, powerful.So fast. So fluid. Get a feel for the all-new Camera Control. 4K 120 fps Dolby Vision. 4 studio-quality mics.A Pro studio in your pocket.',
             price: 999,
             priceUnit: '$',
-            image_src: '/pictures/iphone/iphone_15.png',
-            onSale: false,
+            image_src: '/pictures/iphone/iphone_15_pro.png',
             color: [
                 'DesertTitanium',
                 'NaturalTitanium',
@@ -220,69 +221,68 @@ const EXAMPLE_ITEMS =
                 'BlackTitanium'
             ],
             storageSize: ['256GB', '510GB', '1TB'],
-            categoryBitmap: '/pictures/productsBitmap/iPhone.png',
             variants: [
                 {
-                    color: "DesertTitanium",
-                    storageSize: "256GB",
+                    color: 'DesertTitanium',
+                    storageSize: '256GB',
                     qty: 20
                 },
                 {
-                    color: "DesertTitanium",
-                    storageSize: "510GB",
+                    color: 'DesertTitanium',
+                    storageSize: '510GB',
                     qty: 20
                 },
                 {
-                    color: "DesertTitanium",
-                    storageSize: "1TB",
+                    color: 'DesertTitanium',
+                    storageSize: '1TB',
                     qty: 20
                 },
                 {
-                    color: "NaturalTitanium",
-                    storageSize: "256GB",
+                    color: 'NaturalTitanium',
+                    storageSize: '256GB',
                     qty: 20
                 },
                 {
-                    color: "NaturalTitanium",
-                    storageSize: "510GB",
+                    color: 'NaturalTitanium',
+                    storageSize: '510GB',
                     qty: 20
                 },
                 {
-                    color: "NaturalTitanium",
-                    storageSize: "1TB",
+                    color: 'NaturalTitanium',
+                    storageSize: '1TB',
                     qty: 20
                 },
                 {
-                    color: "WhiteTitanium",
-                    storageSize: "256GB",
+                    color: 'WhiteTitanium',
+                    storageSize: '256GB',
                     qty: 20
                 },
                 {
-                    color: "WhiteTitanium",
-                    storageSize: "510GB",
+                    color: 'WhiteTitanium',
+                    storageSize: '510GB',
                     qty: 20
                 },
                 {
-                    color: "WhiteTitanium",
-                    storageSize: "1TB",
+                    color: 'WhiteTitanium',
+                    storageSize: '1TB',
                     qty: 20
                 },
                 {
-                    color: "BlackTitanium",
-                    storageSize: "256GB",
+                    color: 'BlackTitanium',
+                    storageSize: '256GB',
                     qty: 20
                 },
                 {
-                    color: "BlackTitanium",
-                    storageSize: "510GB",
+                    color: 'BlackTitanium',
+                    storageSize: '510GB',
                     qty: 20
                 },
                 {
-                    color: "BlackTitanium",
-                    storageSize: "1TB",
+                    color: 'BlackTitanium',
+                    storageSize: '1TB',
                     qty: 20
                 }
-            ]
+            ],
         },
         {
             category: 'iPhone',
@@ -774,5 +774,98 @@ const EXAMPLE_ITEMS =
                     qty: 30
                 },
             ]
+        }, {
+            category: "Watch",
+            displayName: "Apple Watch 10",
+            description_short: "Thinstant classic.",
+            description_long: "Series 10 is a major milestone for Apple Watch. It features our biggest and most advanced display yet, showing more information onscreen than ever. With Apple’s first wide-angle OLED Display, the screen is brighter when viewed from an angle, making it easier to read with a quick glance.",
+            price: 699,
+            priceUnit: "$",
+            image_src: "/pictures/watch/appleWatch_10.png",
+            color: ["Silver", "SpaceGray", "Gold"],
+            variants: [
+                {
+                    color: "Silver",
+                    qty: 50
+                },
+                {
+                    color: "SpaceGray",
+                    qty: 50
+                },
+                {
+                    color: "Gold",
+                    qty: 50
+                }
+            ]
+        },
+        {
+            category: "Watch",
+            displayName: "Apple Watch SE",
+            description_short: "A great deal to love.",
+            description_long: "Easy ways to stay connected. Motivating fitness metrics. Innovative health and safety features. Fresh band colors. Apple Watch SE is packed with features at a feel-good price.",
+            price: 249,
+            priceUnit: "$",
+            image_src: "/pictures/watch/appleWatch_SE.png",
+            color: ["Silver", "RoseGold", "Black"],
+            variants: [
+                {
+                    color: "Silver",
+                    qty: 50
+                },
+                {
+                    color: "RoseGold",
+                    qty: 50
+                },
+                {
+                    color: "Black",
+                    qty: 50
+                }
+            ]
+        },
+        {
+            category: "Watch",
+            displayName: "Apple Watch Ultra",
+            description_short: "2nd generation",
+            description_long: "Featuring a stunning, new black titanium case, Apple Watch Ultra 2 is the ultimate sports and adventure watch. It has all the connectivity, health, and safety features for the everyday. And it takes training further with the most accurate GPS in a sports watch",
+            price: 799,
+            priceUnit: "$",
+            image_src: "/pictures/watch/appleWatch_Ultra.png",
+            color: ["Natural", "Black"],
+            variants: [
+                {
+                    color: "Silver",
+                    qty: 50
+                },
+                {
+                    color: "Natural",
+                    qty: 50
+                }
+            ]
+        }, {
+            category: "Watch",
+            displayName: "Apple Watch Hermès",
+            description_short: "A new season of legacy unfolds.",
+            description_long: "Building on a shared foundation of craftsmanship and beauty, the Apple Watch Hermès portfolio is expanding with iconic new designs. The latest collection offers a journey into uncharted territory with deeply hued textiles, luxurious materials, nautical-inspired details, and the debut of the elegantly durable Apple Watch Hermès.",
+            price: 1899,
+            priceUnit: "$",
+            image_src: "/pictures/watch/appleWatch_Hermes.png",
+            variants: [
+                {
+                    qty: 50
+                },
+            ]
         }
+
     ]
+
+
+// initialized database with fake data wiithout duplication
+async function initializeDataBase() {
+    for (let item of EXAMPLE_ITEMS) {
+        const foundItem = await DBstore_item.findOne({ displayName: item.displayName });
+        if (!foundItem) {
+            await DBstore_item.create(item);
+        }
+    }
+}
+initializeDataBase();

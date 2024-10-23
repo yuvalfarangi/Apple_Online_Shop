@@ -11,7 +11,7 @@
         <div class="main_AirPods_Max">
 
             <div class="container">
-                <img src="pictures/airPods/AirPods_Max.png" alt="">
+                <img src="pictures/airPods/AirPods_Max.png" alt="" class="scale-down-center">
                 <h2>AirPods Max</h2>
 
             </div>
@@ -63,11 +63,40 @@
             </button>
         </div>
 
-        <%- include('partials/productsPreviewRow.ejs', {items}) %>
+        <% if(items && items.length>0){ %>
+            <%- include('partials/productsPreviewRow.ejs', {items}) %>
+                <% } %>
 
 
-            <%- include('partials/bottomNavBar.ejs')%>
-                <script src="/js/airPods/airPods.js"></script>
+                    <%- include('partials/bottomNavBar.ejs')%>
+                        <script>
+
+                            const learnMoreBtn = document.querySelector('#learnmore');
+                            learnMoreBtn.addEventListener('click', () => {
+                                location.href = 'items/670111f5d3ffc4ac684695bc';
+                            })
+
+
+                            function addSlideTopClass() {
+                                const paragraph = document.querySelector('.main_AirPods_Max p');
+                                const btn = document.querySelector('#learnmore');
+
+                                const observer = new IntersectionObserver((entries) => {
+                                    entries.forEach(entry => {
+                                        if (entry.isIntersecting) {
+                                            entry.target.classList.add('slide-top');
+                                            observer.unobserve(entry.target);
+                                        }
+                                    });
+                                }, {
+                                    threshold: 0.1
+                                });
+
+                                observer.observe(paragraph);
+                                observer.observe(btn);
+                            }
+                            document.addEventListener('DOMContentLoaded', addSlideTopClass);
+                        </script>
 </body>
 
 </html>

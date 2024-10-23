@@ -26,15 +26,40 @@
             </div>
             <video src="/pictures/mac/macbookAirDisplay.mov" class="Video" autoplay muted playsinline></video>
 
-            <%- include('partials/productsPreviewRow.ejs', {items}) %>
+            <% if(items && items.length>0){ %>
+                <%- include('partials/productsPreviewRow.ejs', {items}) %>
+                    <% } %>
 
-                <%- include('partials/bottomNavBar.ejs')%>
+                        <%- include('partials/bottomNavBar.ejs')%>
 </body>
 
 <script>
     document.querySelector('#learnmore').addEventListener('click', () => {
         window.location.href = "/items/670839d5f66a4b2a52701132";
     })
+
+    function addSlideTopClass() {
+        const heading = document.querySelector('#macbookAir h2');
+        const paragraph = document.querySelector('#macbookAir p');
+        const btn = document.querySelector('#learnmore');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('slide-top');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.2
+        });
+
+        observer.observe(heading);
+        observer.observe(paragraph);
+        observer.observe(btn);
+    }
+
+    document.addEventListener('DOMContentLoaded', addSlideTopClass);
 </script>
 
 </html>

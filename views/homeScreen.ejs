@@ -9,13 +9,12 @@
 <body>
     <%- include('partials/topNavBar.ejs')%>
 
-        <!-- <div style="height: 65px;"></div> -->
 
         <!-- iphone 16 -->
         <div id="iphone16">
-            <h1>iPhone 20 Pro</h1>
-            <h2 id="iphone16description">so Light, so Powerful, so Pro</h2>
-            <button id="learnmore">learn more</button>
+            <h1 class="slide-top">iPhone 20 Pro</h1>
+            <h2 id="iphone16description" class="slide-top">so Light, so Powerful, so Pro</h2>
+            <button id="learnmore" class="deatilsBtn slide-top">Learn More</button>
         </div>
 
         <section id="ipadMini">
@@ -50,7 +49,55 @@
 
 
         <%- include('partials/bottomNavBar.ejs')%>
-            <script src="/js/homeScreen/homeScreen.js"></script>
+            <script>
+
+
+                document.querySelector('#learnmore').addEventListener('click', () => {
+                    window.location.href = '/items/670111f5d3ffc4ac684695be';
+                })
+
+                document.querySelector('#iPadBuyButton').addEventListener('click', () => {
+                    window.location.href = '/iPad';
+                })
+
+                function addSlideLeftClass() {
+                    const img = document.querySelector('#ipadMini img');
+
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add('slide-left');
+                                observer.unobserve(entry.target);
+                            }
+                        });
+                    }, {
+                        threshold: 0.01
+                    });
+
+                    observer.observe(img);
+                }
+                document.addEventListener('DOMContentLoaded', addSlideLeftClass);
+
+
+                function addSlideRightClass() {
+                    const div = document.querySelector('#ipadMiniDeatils');
+
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add('slide-right');
+                                observer.unobserve(entry.target);
+                            }
+                        });
+                    }, {
+                        threshold: 0.01
+                    });
+
+                    observer.observe(div);
+                }
+                document.addEventListener('DOMContentLoaded', addSlideRightClass);
+
+            </script>
 </body>
 
 </html>

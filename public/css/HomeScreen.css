@@ -31,23 +31,6 @@
         font-weight: 300;
         letter-spacing: 0rem;
     }
-
-    #learnmore {
-        background-color: #0171e3;
-        font-family: inter, helvetica, sans-serif;
-        font-weight: 200;
-        font-size: 25px;
-        color: white;
-        border: 0;
-        padding: 0.4em 0.9em;
-        border-radius: 2em;
-        line-height: normal;
-    }
-
-    #learnmore:hover {
-        background-color: #398cf1;
-    }
-
 }
 
 @media(max-width: 1050px) {
@@ -57,10 +40,6 @@
 
     #iphone16 h2 {
         font-size: 25px;
-    }
-
-    #iphone16 #learnmore {
-        font-size: 20px;
     }
 }
 

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('partials/generic.ejs')%>
+        <link rel="stylesheet" href="/css/watch.css">
+</head>
+
+<body>
+    <%- include('partials/topNavBar.ejs')%>
+        <%- include('partials/pageTitle.ejs', {N:"Apple Watch",t1:"The ultimate device", t2:"for a healthy life."})%>
+
+            <video src="/pictures/watch/WatchDisplay.mp4" class="Video" autoplay muted playsinline loop></video>
+
+
+            <div id="appleWatch10">
+                <h2>Thinstant classic.</h2>
+                <p>Series 10 is our thinnest watch ever. To make this possible, we re-engineered nearly every aspect of
+                    it, including the SiP, Digital Crown, speaker, front crystal, and antenna. It all comes together to
+                    create a watch that’s packed full of innovation.</p>
+                <button id="learnmore" class="deatilsBtn">Learn More</button>
+            </div>
+            <video src="/pictures/watch/appleWatch10Display.mp4" class="Video" autoplay muted playsinline></video>
+
+
+            <% if(items && items.length>0){ %>
+                <%- include('partials/productsPreviewRow.ejs', {items}) %>
+                    <% } %>
+
+                        <%- include('partials/bottomNavBar.ejs')%>
+</body>
+
+<script>
+    document.querySelector('#learnmore').addEventListener('click', () => {
+        window.location.href = "/items/6717ee52dd6947c89ccb33ad";
+    })
+
+    function addSlideTopClass() {
+        const heading = document.querySelector('#appleWatch10 h2');
+        const paragraph = document.querySelector('#appleWatch10 p');
+        const btn = document.querySelector('#learnmore');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('slide-top');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.2
+        });
+
+        observer.observe(heading);
+        observer.observe(paragraph);
+        observer.observe(btn);
+    }
+    addSlideTopClass();
+</script>
+
+</html>
