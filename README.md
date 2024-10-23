@@ -1,6 +1,6 @@
-**********************
+-------------------
 OverView
-**********************
+-------------------
 Apple Online Shop is a full-stack web application replicating an Apple online store. 
 This project features a product catalog, shopping cart functionality 
 and user authentication for a seamless e-commerce experience. 
