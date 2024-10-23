@@ -70,9 +70,6 @@ const applayCategoriesBitmap = async () => {
 };
 
 
-
-module.exports = DBstore_item;
-
 const EXAMPLE_ITEMS =
     [
         {
@@ -866,4 +863,8 @@ async function initializeDataBase() {
         }
     }
 }
-initializeDataBase().then(applayCategoriesBitmap());
+initializeDataBase().then(() => { applayCategoriesBitmap() });
+
+
+
+module.exports = DBstore_item;
