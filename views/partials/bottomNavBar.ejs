@@ -2,11 +2,8 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apple</title>
-
-    <link rel="stylesheet" href="/css/bottomNavBar.css">
+    <%- include('./generic.ejs')%>
+        <link rel="stylesheet" href="/css/bottomNavBar.css">
 
 </head>
 
@@ -14,21 +11,54 @@
     <!-- bottom navigation bar -->
     <nav id="bottomNav">
         <ul>
-            <li><a href="">Explore</a></li>
+            <li><a href="" class="bottomNavBarPopoverClose">Explore</a></li>
             <hr class="hrs">
-            <li><a href="">Account</a></li>
+            <li><a href="" class="bottomNavBarPopoverClose">Account</a></li>
             <hr class="hrs">
-            <li><a href="">About Apple</a></li>
+            <li><a href="" class="bottomNavBarPopoverClose">About Apple</a></li>
             <hr class="hrs">
-            <li><a href="">Privacy</a></li>
+            <li><a href="" class="bottomNavBarPopoverClose">Privacy</a></li>
             <hr class="hrs">
-            <li><a href="">Report a problem</a></li>
+            <li><a href="" class="bottomNavBarPopoverClose">Report a problem</a></li>
         </ul>
         <p id="copyright"> <img
                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/976px-Apple_logo_black.svg.png?20220821121934"
                 alt=""> Copyright &copy; 2024 Apple Inc. All rights reserved to Yuval Farangi.</p>
     </nav>
 
+    <div id="popverMessageContainer" popover>
+        <div id="popverMessage">
+            <p id="title1">
+                It's a fake website..
+            </p>
+            <p id="title2">
+                we don't have that
+            </p>
+            <button class="deatilsBtn" id="closePopover">Close</button>
+        </div>
+    </div>
+
+    <script>
+        const links = document.querySelectorAll(".bottomNavBarPopoverClose");
+        const popoverMessage = document.querySelector('#popverMessageContainer');
+        const closePopover = document.querySelector('#closePopover');
+
+        function showPopover() {
+            popoverMessage.style.display = 'block';
+        }
+
+        links.forEach(link => {
+            link.addEventListener('click', (event) => {
+                event.preventDefault();
+                showPopover();
+            });
+        });
+
+        closePopover.addEventListener('click', () => {
+            popoverMessage.style.display = 'none';
+        });
+
+    </script>
 </body>
 
 </html>
