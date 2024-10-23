@@ -99,3 +99,28 @@
     font-weight: 200;
     font-size: 20px;
 }
+
+@media(max-width: 900px) {
+
+    #popverMessageContainer {
+
+        padding: 10px;
+    }
+
+    #popverMessageContainer #popverMessage {
+
+        width: 400px;
+        height: 300px;
+    }
+
+    #popverMessage #title1 {
+
+        font-size: 25px;
+        margin-bottom: 10px !important;
+    }
+
+    #popverMessage #title2 {
+
+        font-size: 15px;
+    }
+}

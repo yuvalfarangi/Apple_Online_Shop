@@ -68,8 +68,6 @@ const applayCategoriesBitmap = async () => {
         );
     }
 };
-applayCategoriesBitmap();
-
 
 
 
@@ -868,4 +866,4 @@ async function initializeDataBase() {
         }
     }
 }
-initializeDataBase();
+initializeDataBase().then(applayCategoriesBitmap());
